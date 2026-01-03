@@ -4,9 +4,8 @@
   gather_facts: no
 
   tasks:
-    - name: show version Komutunu Calistir
-      community.network.aruba_command:    # <-- Community modülüne geri döndük
-        commands: show version
+    - name: show version Komutunu Calistir (RAW Modu)
+      ansible.builtin.raw: "show version"   # <-- JOKER MODÜL
       register: komut_cikti
 
     - name: Cihazdan Gelen Ham Ciktiyi Goster
