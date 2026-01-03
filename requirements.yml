@@ -1,5 +1,3 @@
 ---
 collections:
-  - name: community.network
-  - name: arubanetworks.aos_switch  # <-- Iste eksik olan parca bu!
-  - name: ansible.netcommon         # <-- Joker modul icin bu da gerekli
+  - name: arubanetworks.aos_switch
