@@ -1,17 +1,14 @@
 ---
 - name: Aruba Cihaz Versiyon Bilgisi Toplama
   hosts: all
-  gather_facts: no  # Sadece istedigimiz komutu kosacagiz, vakit kaybetmeyelim.
+  gather_facts: no
 
   tasks:
-    # 1. ADIM: Komutu Cihaza Gönder
     - name: show version Komutunu Calistir
-      ansible.netcommon.cli_command: 
-      community.network.aruba_command:
-        commands: show version
-      register: komut_cikti   # SONUCU HAFIZAYA KAYDET (Variable)
+      ansible.netcommon.cli_command:
+        command: show version
+      register: komut_cikti
 
-    # 2. ADIM: Hafizadaki Sonucu Ekrana Yazdir
     - name: Cihazdan Gelen Ham Ciktiyi Goster
       debug:
-        msg: "{{ komut_cikti.stdout_lines[0] }}"
+        msg: "{{ komut_cikti.stdout }}"
