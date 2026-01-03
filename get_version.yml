@@ -2,13 +2,13 @@
 - name: Aruba Cihaz Versiyon Bilgisi Toplama
   hosts: all
   gather_facts: no
-
+  
   tasks:
     - name: show version Komutunu Calistir
-      ansible.netcommon.cli_command:
-        command: show version
+      arubanetworks.aos_switch.aruba_command:    # <-- ARUBA'NIN KENDİ MODÜLÜ
+        commands: show version                   # Dikkat: 'command' değil 'commands' (çoğul s)
       register: komut_cikti
 
     - name: Cihazdan Gelen Ham Ciktiyi Goster
       debug:
-        msg: "{{ komut_cikti.stdout }}"
+        msg: "{{ komut_cikti.stdout_lines }}"    # Çıktıyı düzgün formatta göster
