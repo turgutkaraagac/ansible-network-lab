@@ -2,10 +2,10 @@
 - name: Aruba Cihaz Versiyon Bilgisi Toplama
   hosts: all
   gather_facts: no
-  
+
   tasks:
     - name: show version Komutunu Calistir
-      arubanetworks.aos_switch.arubaoss_command:   # <-- DUZELTME: 'oss' eki eklendi
+      arubanetworks.aos_switch.arubaoss_command:   # <-- BURASI DOĞRU, KALSIN
         commands: show version
       register: komut_cikti
 
