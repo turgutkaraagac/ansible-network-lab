@@ -5,7 +5,7 @@
 
   tasks:
     - name: show version Komutunu Calistir
-      arubanetworks.aos_switch.arubaoss_command:   # <-- BURASI DOĞRU, KALSIN
+      community.network.aruba_command:    # <-- Community modülüne geri döndük
         commands: show version
       register: komut_cikti
 
